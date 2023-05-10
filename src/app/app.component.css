@@ -1,0 +1,48 @@
+.navbar{
+    justify-content: space-between;
+}
+
+.menu{
+    padding-right: 1rem;
+}
+
+mat-sidenav-container{
+    height: 100vh;
+    background-color:aliceblue;
+}
+
+mat-sidenav, mat-sidenav-content{
+    padding: 16px;
+}
+
+mat-sidenav{
+    background-color: coral;
+    width: 200px;
+}
+
+.sidenav-topper{
+    display: flex;
+    justify-content: space-between;
+}
+
+mat-card{
+    width: 300px;
+    height: 260px;
+    margin: 50px;
+}
+
+mat-card-title{
+    padding: 3% 7%;
+    background-color: black;
+    color: white;
+}
+
+mat-card-content{
+    padding: 2% 3%;
+    background-color: cornsilk;
+}
+
+mat-card-actions{
+    justify-content: center;
+    background-color: black;
+}
