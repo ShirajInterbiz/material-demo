@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
   title = 'material-demo';
 
   hidden = false;
@@ -63,4 +64,67 @@ export class AppComponent {
     console.log(msg)
   }
 
+  checkboxItems = [
+    { label: 'Item 1', selected: false },
+    { label: 'Item 2', selected: true },
+    { label: 'Item 3', selected: false },
+  ];
+
+  selectedCheckBoxes:string[]=[];
+
+  onCheckboxChange() {
+    const selectedValues = this.checkboxItems
+      .filter(item => item.selected)
+      .map(item => item.label);
+      this.selectedCheckBoxes = selectedValues;
+    console.log(selectedValues); // Access the selected values here
+  }
+
+
+  selectedValue!:any;
+  onRadioChange(){
+    console.log(this.selectedValue)
+  }
+
+  minDate = new Date()
+  maxDate = new Date(2023, 4, 19);
+
+  dateFilter(date:any){
+    const day = date.getDay();
+    return day != 0 && day != 6
+  }
+  // PREVENTS SATURDAY AND SUNDAY FROM BEING SELECTED
+
+  onDateInputKeydown(event: KeyboardEvent) {
+    const allowedKeys = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '/', '-'];
+
+    if (!allowedKeys.includes(event.key)) {
+      event.preventDefault();
+    }
+  }
+
+  toggle1:boolean = true;
+  toggle2:boolean = false;
+
+  togOne(){
+    this.toggle1=!this.toggle1
+  }
+  togTwo(){
+    this.toggle2=!this.toggle2
+  }
+
+  chips:string[] = ["Angular", "React", "Vue"];
+  chipClicked(chip:string){
+    console.log(chip," clicked")
+  }
+
+  deleteThis(dChip:string){
+    let skills = this.mySkills.split(',');
+    let newSkills = skills.filter((chip)=>{
+      return chip !== dChip;
+    });
+    this.mySkills = newSkills.join(',');
+  }
+
+  mySkills:string  = 'Angular,React,Vue';
 }

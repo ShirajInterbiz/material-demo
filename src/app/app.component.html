@@ -238,3 +238,305 @@
     </mat-card>
   </mat-sidenav-container>
 </mat-sidenav-container>
+
+
+<mat-menu #appMenu="matMenu" xPosition="before" yPosition="below">
+  <button mat-menu-item [matMenuTriggerFor]="subMenuFront">FrontEnd</button>
+  <button mat-menu-item [matMenuTriggerFor]="subMenuBack">BackEnd</button>
+</mat-menu>
+
+<mat-menu #subMenuBack="matMenu">
+  <button mat-menu-item>C#</button>
+  <button mat-menu-item>.NET</button>
+  <button mat-menu-item>ASP</button>
+</mat-menu>
+
+<mat-menu #subMenuFront="matMenu">
+  <button mat-menu-item>Angular</button>
+  <button mat-menu-item>React</button>
+  <button mat-menu-item>Vue</button>
+</mat-menu>
+
+<button class="center" mat-flat-button [matMenuTriggerFor]="appMenu">Menu</button>
+<!-- <button class="center" mat-flat-button [matMenuTriggerData]="{name: 'Shiraj'}" [matMenuTriggerFor]="lazyMenu">Lazy Menu</button> -->
+
+
+<h1>Lists</h1>
+<div style="margin: 2%; padding: 2%; border: 2px solid tomato; display: flex;">
+  <mat-list>
+    <mat-list-item>
+      <img matListItemAvatar
+        src="https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+        alt="Mor pankh">
+      <mat-icon matListItemIcon>home</mat-icon>
+      <h3 matListItemTitle>Heading</h3>
+      <p matListItemLine>Line</p>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>
+      <img matListItemAvatar
+        src="https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+        alt="Mor pankh">
+      <mat-icon matListItemIcon>folder</mat-icon>
+      <h3 matListItemTitle>Heading 2</h3>
+      <p matListItemLine>Line 2</p>
+      <p matListItemMeta>Meta Data 2</p>
+    </mat-list-item>
+  </mat-list>
+  <!-- 
+<mat-menu #lazyMenu = "matMenu">
+  <ng-template matMenuContent let-name = 'name'>
+    <button mat-menu-item>Settings</button>
+    <button mat-menu-item>Logout {{name}}</button>
+  </ng-template>
+</mat-menu>
+
+<mat-list dense>
+  <mat-list-item>Item 1</mat-list-item>
+  <mat-list-item>Item 2</mat-list-item>
+  <mat-list-item>Item 3</mat-list-item>
+</mat-list> -->
+
+  <!-- <mat-nav-list>
+  <a mat-list-item href = "#">Home</a>
+  <a mat-list-item href = "#">About</a>
+  <a mat-list-item href = "#">Services</a>
+</mat-nav-list> -->
+</div>
+
+<h1>Form Fields</h1>
+
+<div style="margin: 2%; padding: 2%; border: 2px solid tomato; display: flex;">
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input matInput placeholder="Name">
+  </mat-form-field>
+  <mat-form-field floatLabel="always" hideRequiredMarker appearance="fill">
+    <mat-label>Name</mat-label>
+    <input matInput placeholder="Name" required>
+  </mat-form-field>
+  <mat-form-field floatLabel="auto" appearance="outline">
+    <mat-label>Name</mat-label>
+    <input matInput placeholder="Name" required>
+    <mat-hint>Min 5 characters</mat-hint>
+  </mat-form-field>
+</div>
+
+<!-- Find about values of appearance -->
+<!-- Legacy(deprecated), standard(deprecated), fill, outline -->
+
+<h1>Check box & Radio</h1>
+
+<div style="margin: 2%; padding: 2%; border: 2px solid tomato;">
+  <mat-checkbox color="primary">Subscribe</mat-checkbox><br>
+  <mat-checkbox labelPosition="before">Subscribe</mat-checkbox><br>
+  <mat-checkbox color="warn">Subscribe</mat-checkbox><br>
+  <br>
+  <mat-checkbox *ngFor="let item of checkboxItems" [(ngModel)]="item.selected" (change)="onCheckboxChange()">
+    {{ item.label }}
+  </mat-checkbox>
+  <div>{{selectedCheckBoxes | json}} </div>
+  <br>
+  <mat-radio-group [(ngModel)]="selectedValue" (change)="onRadioChange()">
+    <mat-radio-button value="Angular" color="primary">Angular</mat-radio-button>
+    <mat-radio-button value="React">React</mat-radio-button>
+    <mat-radio-button value="Vue" color="warn">Vue</mat-radio-button>
+  </mat-radio-group>
+  <p>Your selection is: {{selectedValue}}</p>
+</div>
+
+<h1>Check box & Radio</h1>
+
+<div style="margin: 2%; padding: 2%; border: 2px solid tomato;">
+  <mat-form-field>
+    <input matInput [matDatepicker]="myDatePicker" [min]="minDate" [max]="maxDate" [matDatepickerFilter]="dateFilter">
+    <mat-datepicker-toggle [for]="myDatePicker" matSuffix></mat-datepicker-toggle>
+    <mat-datepicker #myDatePicker></mat-datepicker>
+  </mat-form-field>
+</div>
+
+
+
+<h1>Expansion Panel & Accordion(Make only one panel open at a time unless we use multi='true' in the tag)</h1>
+<mat-accordion multi='true' hideToggle="true">
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Angular Fundamentals
+      </mat-panel-title>
+      <mat-panel-description>
+        Total Duration: 3 hours
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>This is the panel content</p>
+    <mat-action-row>
+      <button mat-raised-button>Enroll</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Angular Fundamentals
+      </mat-panel-title>
+      <mat-panel-description>
+        Total Duration: 3 hours
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>This is the panel content</p>
+    <mat-action-row>
+      <button mat-raised-button>Enroll</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Angular Fundamentals
+      </mat-panel-title>
+      <mat-panel-description>
+        Total Duration: 3 hours
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>This is the panel content</p>
+    <mat-action-row>
+      <button mat-raised-button>Enroll</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>
+
+
+<h1>Check box & Radio</h1>
+
+<div style="margin: 2%; padding: 2%; border: 2px solid tomato;">
+  <div style="margin: 2rem; display: inline;">
+    <mat-slide-toggle color="primary" (click)="togTwo()" [checked]="toggle1">
+      Toggler 1
+    </mat-slide-toggle>
+  </div>
+  <div style="margin: 2rem; display: inline;">
+    <mat-slide-toggle color="primary" (click)="togOne()" [checked]="toggle2">
+      Toggler 2
+    </mat-slide-toggle>
+  </div>
+</div>
+
+
+<h1>Check box & Radio</h1>
+
+<div style="margin: 2%; padding: 2%; border: 2px solid tomato;">
+  <div style="margin: 2rem; display: inline;">
+    <button mat-raised-button matTooltip="Welcome to my code" matTooltipPosition="after" matTooltipShowDelay="1000"
+      matTooltipHideDelay="1000">Tool
+    </button>
+  </div>
+</div>
+
+<h1>Progress Bar</h1>
+
+<div style="margin: 2%; padding: 2%; border: 2px solid tomato;">
+  <p>mode="determinate"</p>
+  <mat-progress-bar value="47" color="warn" mode="determinate"></mat-progress-bar><br>
+  <p>mode="buffer"</p>
+  <mat-progress-bar value="60" color="warn" mode="buffer"></mat-progress-bar><br>
+  <p>mode="indeterminate"</p>
+  <mat-progress-bar value="20" color="warn" mode="indeterminate"></mat-progress-bar><br>
+  <p>mode="query"</p>
+  <mat-progress-bar value="47" color="warn" mode="query"></mat-progress-bar><br>
+</div>
+
+
+<h1>Slider</h1>
+
+<div style="margin: 2%; padding: 2%; border: 2px solid tomato;">
+  <p>Default Accent Theme Slider</p>
+  <mat-slider style="width: 90vw;" min="0" max="100" step="1" value="50"></mat-slider><br>
+  <hr>
+
+  <p>Primary Theme Slider</p>
+  <mat-slider min="0" color="accent" max="100" step="1" value="5"></mat-slider>
+  <hr>
+
+  <p>Inverted Slider</p>
+  <mat-slider min="0" max="1000" step="1" value="50" invert="true"></mat-slider>
+  <hr>
+
+  <p>Vertical Slider</p>
+  <mat-slider min="0" max="100" step="1" value="50" vertical="true"></mat-slider>
+  <hr>
+
+  <p>Disabled Slider</p>
+  <mat-slider min="0" max="100" step="1" value="50" disabled="true"></mat-slider>
+
+  <mat-slider min="1" max="5" step="0.5" value="1.5">
+    <input matSliderThumb>
+  </mat-slider>
+  <hr>
+</div>
+
+
+<h1>Chips</h1>
+<div style="margin: 2%; padding: 2%; border: 2px solid tomato;">
+  <mat-chip-listbox aria-label="Fish selection">
+    <mat-chip-option>One fish</mat-chip-option>
+    <mat-chip-option>Two fish</mat-chip-option>
+    <mat-chip-option color="accent" selected>Accent fish</mat-chip-option>
+    <mat-chip-option color="warn">Warn fish</mat-chip-option>
+  </mat-chip-listbox>
+
+  
+  <br>
+  <mat-form-field>
+    <mat-label>My Skills</mat-label>
+    <input [(ngModel)]="mySkills" matInput placeholder="skills">
+  </mat-form-field>
+  <br>
+  <mat-chip-listbox >
+    <mat-chip-option *ngFor="let chip of mySkills|spliter " (click)="chipClicked(chip)">
+      <div style="display: flex; align-items: center;">
+        <p style="margin: 0px;">{{chip}}</p>
+        <mat-icon (click)="deleteThis(chip)">close</mat-icon>
+      </div>
+  </mat-chip-option>
+  </mat-chip-listbox>
+</div>
+
+<h1>Chips</h1>
+<div style="margin: 2%; padding: 2%; border: 2px solid tomato;">
+  <h3>Using mat-tab-group and mat-tab</h3>
+  <mat-tab-group>
+      <mat-tab label="First">Content 1</mat-tab>
+      <mat-tab label="Second">Content 2</mat-tab>
+      <mat-tab label="Third">Content 3</mat-tab>
+  </mat-tab-group>
+</div>
+
+<div style="margin: 2%; padding: 2%; border: 2px solid tomato;">
+  <h3>Using mat-tab-group and mat-tab</h3>
+
+  <mat-tab-group>
+
+    <mat-tab label="First">
+      <ng-template mat-tab-label>
+        <mat-icon class="example-tab-icon">thumb_up</mat-icon>&nbsp;First
+      </ng-template>
+      Content 1
+    </mat-tab>
+
+    <mat-tab label="Second">
+      <ng-template mat-tab-label>
+        <mat-icon class="example-tab-icon">thumb_up</mat-icon>&nbsp;First
+      </ng-template>
+      Content 2
+    </mat-tab>
+
+    <mat-tab label="Third">
+      <ng-template mat-tab-label>
+        <mat-icon class="example-tab-icon">thumb_up</mat-icon>&nbsp;First
+      </ng-template>
+      Content 3
+    </mat-tab>
+
+</mat-tab-group>
+</div>
+
+<mat-paginator></mat-paginator>
+

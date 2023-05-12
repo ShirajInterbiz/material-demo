@@ -46,3 +46,8 @@ mat-card-actions{
     justify-content: center;
     background-color: black;
 }
+
+.center{
+    margin-left: 100px;
+    margin-bottom: 50px;
+}
