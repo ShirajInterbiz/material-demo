@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild  } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -127,4 +127,11 @@ export class AppComponent {
   }
 
   mySkills:string  = 'Angular,React,Vue';
+
+
+
+  itemsPerPage = 10;
+  totalItems = 100;
+  pageSizeOptions: number[] = [5, 10, 25, 100];
+
 }

@@ -539,4 +539,13 @@
 </div>
 
 <mat-paginator></mat-paginator>
+<mat-paginator [length]="totalItems"
+               [pageSize]="itemsPerPage"
+               [pageSizeOptions]="pageSizeOptions"
+               >
+</mat-paginator>
 
+<div style="margin: 2%; padding: 2%; border: 2px solid tomato;">
+  <h2>Table</h2>
+  <app-pagination></app-pagination>
+</div>

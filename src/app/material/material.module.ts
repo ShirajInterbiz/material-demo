@@ -23,7 +23,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatSliderModule} from '@angular/material/slider';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatTabsModule} from '@angular/material/tabs';
-import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatPaginatorModule, MatPaginatorIntl} from '@angular/material/paginator';
+import {MatTableModule} from '@angular/material/table';
 
 
 const MaterialComponents = [
@@ -31,7 +32,8 @@ const MaterialComponents = [
   MatProgressSpinnerModule, MatToolbarModule, MatSidenavModule, MatCardModule, MatMenuModule,
   MatListModule , MatDividerModule, MatFormFieldModule, MatInputModule, MatCheckboxModule,
   MatRadioModule, MatDatepickerModule, MatNativeDateModule, MatExpansionModule, MatTooltipModule,
-  MatProgressBarModule, MatSliderModule, MatChipsModule, MatTabsModule, MatPaginatorModule
+  MatProgressBarModule, MatSliderModule, MatChipsModule, MatTabsModule, MatPaginatorModule,
+  MatTableModule
 ];
 
 @NgModule({
